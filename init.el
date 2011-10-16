@@ -8,8 +8,12 @@
 ;; -- rows and columns -------------------------------------------------------
 (setq line-number-mode t)
 (setq column-number-mode t)
+
 (global-linum-mode t)
 (setq linum-format "%4d ")
+
+(setq-default fill-column 80)
+(add-hook 'text-mode-hook 'longlines-mode)
 ;; -- end --------------------------------------------------------------------
 
 
