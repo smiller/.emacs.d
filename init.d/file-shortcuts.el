@@ -21,3 +21,21 @@
   (interactive)
   (find-file "~/rolls/0/memos.txt"))
 (global-set-key (kbd "M-g M-p") 'my-open-pass)
+
+(defun my-dired-rolls ()
+  "Opening '~/rolls'."
+  (interactive)
+  (dired "~/rolls/"))
+(global-set-key (kbd "M-g M-r") 'my-dired-rolls)
+
+(defun my-dired-qs-core ()
+  "Opening '~/projects/qs-core'."
+  (interactive)
+  (dired "~/projects/qs-core/"))
+(global-set-key (kbd "M-g M-q") 'my-dired-qs-core)
+
+(defun my-dired-cp ()
+  "Opening '~/projects/campusperks'."
+  (interactive)
+  (dired "~/projects/campusperks/"))
+(global-set-key (kbd "M-g M-c") 'my-dired-cp)

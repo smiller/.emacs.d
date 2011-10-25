@@ -66,6 +66,6 @@
 ;; -- iy-go-to-char ----------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/vendor/iy-go-to-char/")
 (require 'iy-go-to-char)
-(global-set-key (kbd "M-m") 'iy-go-to-char)
-(global-set-key (kbd "M-M") 'iy-go-to-char-backward)
+(global-set-key (kbd "M-n") 'iy-go-to-char)
+(global-set-key (kbd "M-N") 'iy-go-to-char-backward)
 ;; -- end --------------------------------------------------------------------
