@@ -8,14 +8,14 @@
 ;; -- load everything from smm-init-dir --------------------------------------
 (setq smm-init-dir (expand-file-name "init.d" smm-emacs-config-dir))
 (if (file-exists-p smm-init-dir)
-  (dolist (file (directory-files smm-init-dir t "\\.el$"))
-    (load file)))
+    (dolist (file (directory-files smm-init-dir t "\\.el$"))
+      (load file)))
 ;; -- end --------------------------------------------------------------------
 
-;; -- autosave and backup files to smm-backup-dir ----------------------------
+;; -- don't autosave; backup files to smm-backup-dir -------------------------
 (setq smm-backup-dir (expand-file-name "backup" smm-emacs-config-dir))
-(setq backup-directory-alist `((".*" . ,smm-backup-dir)))
-(setq auto-save-file-name-transforms `((".*" ,smm-backup-dir t)))
+(setq backup-directory-alist '((".*" . smm-backup-dir)))
+(setq auto-save-default nil)
 ;; -- end --------------------------------------------------------------------
 
 ;; -- Rows and columns -------------------------------------------------------
@@ -40,7 +40,7 @@
 
 ;; -- tags -------------------------------------------------------------------
 (setq tags-table-list
-    '("/Users/sean/projects/qs-core/TAGS"))
+      '("/Users/sean/projects/qs-core/TAGS"))
 ;; -- end --------------------------------------------------------------------
 
 ;; == external and third-party (vendor) ======================================
