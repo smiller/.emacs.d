@@ -14,7 +14,8 @@
 
 ;; -- don't autosave; backup files to smm-backup-dir -------------------------
 (setq smm-backup-dir (expand-file-name "backup" smm-emacs-config-dir))
-(setq backup-directory-alist `((".*" . ,smm-backup-dir)))
+(setq backup-directory-alist
+      (list (cons "." smm-backup-dir)))
 (setq auto-save-default nil)
 ;; -- end --------------------------------------------------------------------
 
