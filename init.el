@@ -45,17 +45,18 @@
       '("/Users/sean/projects/qs-core/TAGS"))
 ;; -- end --------------------------------------------------------------------
 
-;; == external and third-party (vendor) ======================================
+;; == third-party packages ===================================================
 
 ;; -- magit ------------------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/vendor/magit-1.0.0/")
 (setq exec-path (append exec-path '("/usr/local/git/bin")))
 (require 'magit)
+(global-set-key (kbd "M-g M-m") 'magit-status)
 ;; -- end --------------------------------------------------------------------
 
 ;; -- full-ack ---------------------------------------------------------------
-(setq exec-path (append exec-path '("/usr/local/bin")))
 (add-to-list 'load-path "~/.emacs.d/vendor/full-ack-0.2.2/")
+(setq exec-path (append exec-path '("/usr/local/bin")))
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
@@ -66,4 +67,5 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/iy-go-to-char/")
 (require 'iy-go-to-char)
 (global-set-key (kbd "M-m") 'iy-go-to-char)
+(global-set-key (kbd "M-M") 'iy-go-to-char-backward)
 ;; -- end --------------------------------------------------------------------
