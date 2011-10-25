@@ -12,14 +12,15 @@
       (load file)))
 ;; -- end --------------------------------------------------------------------
 
-;; -- don't autosave; backup files to smm-backup-dir -------------------------
-(setq smm-backup-dir (expand-file-name "backup" smm-emacs-config-dir))
-(setq backup-directory-alist
-      (list (cons "." smm-backup-dir)))
+;; -- disable stuff ----------------------------------------------------------
+(setq make-backup-files nil)
 (setq auto-save-default nil)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+(setq inhibit-startup-message t)
 ;; -- end --------------------------------------------------------------------
 
-;; -- Rows, columns, look ----------------------------------------------------
+;; -- rows and columns -------------------------------------------------------
 (setq line-number-mode t)
 (setq column-number-mode t)
 
@@ -28,9 +29,6 @@
 
 (setq-default fill-column 80)
 (add-hook 'text-mode-hook 'longlines-mode)
-
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
 ;; -- end --------------------------------------------------------------------
 
 ;; -- whitespace -------------------------------------------------------------
