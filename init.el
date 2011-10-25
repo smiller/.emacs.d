@@ -12,7 +12,7 @@
     (load file)))
 ;; -- end --------------------------------------------------------------------
 
-;; -- don't autosave and hide backup files -----------------------------------
+;; -- autosave and backup files to smm-backup-dir ----------------------------
 (setq smm-backup-dir (expand-file-name "backup" smm-emacs-config-dir))
 (setq backup-directory-alist `((".*" . ,smm-backup-dir)))
 (setq auto-save-file-name-transforms `((".*" ,smm-backup-dir t)))
