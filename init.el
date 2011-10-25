@@ -19,7 +19,7 @@
 (setq auto-save-default nil)
 ;; -- end --------------------------------------------------------------------
 
-;; -- Rows and columns -------------------------------------------------------
+;; -- Rows, columns, look ----------------------------------------------------
 (setq line-number-mode t)
 (setq column-number-mode t)
 
@@ -28,6 +28,9 @@
 
 (setq-default fill-column 80)
 (add-hook 'text-mode-hook 'longlines-mode)
+
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 ;; -- end --------------------------------------------------------------------
 
 ;; -- whitespace -------------------------------------------------------------
