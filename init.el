@@ -55,25 +55,8 @@
 
 ;; == third-party packages ===================================================
 
-;; -- add marmalade repo -----------------------------------------------------
-(require 'package)
-(require 'eieio)
-
-(add-to-list 'package-archives
-'("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-(package-initialize)
-
-(setq required-packages
-      (list 'full-ack 'magit))
-
-(dolist (package required-packages)
-  (when (not (package-installed-p package))
-    (package-refresh-contents)
-    (package-install package)))
-;; -- end --------------------------------------------------------------------
-
 ;; -- magit ------------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/magit-1.0.0/")
 (setq exec-path (append exec-path '("/usr/local/git/bin")))
 (require 'magit)
 (global-set-key (kbd "M-g M-m") 'magit-status)
@@ -88,6 +71,7 @@
 ;; -- end --------------------------------------------------------------------
 
 ;; -- full-ack ---------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/full-ack-0.2.2")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
@@ -100,4 +84,9 @@
 (require 'iy-go-to-char)
 (global-set-key (kbd "M-n") 'iy-go-to-char)
 (global-set-key (kbd "M-N") 'iy-go-to-char-backward)
+;; -- end --------------------------------------------------------------------
+
+;; -- inf-ruby ---------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/inf-ruby-2.2.2/")
+(require 'inf-ruby)
 ;; -- end --------------------------------------------------------------------
