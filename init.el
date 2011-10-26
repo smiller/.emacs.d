@@ -57,12 +57,20 @@
 
 ;; -- add marmalade repo -----------------------------------------------------
 (require 'package)
+(require 'eieio)
+
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+'("marmalade" . "http://marmalade-repo.org/packages/") t)
+
 (package-initialize)
-;; then M-x package-refresh-contents
-;; M-x package-install RET magit RET
-;; M-x package-install RET full-ack
+
+(setq required-packages
+      (list 'full-ack 'magit))
+
+(dolist (package required-packages)
+  (when (not (package-installed-p package))
+    (package-refresh-contents)
+    (package-install package)))
 ;; -- end --------------------------------------------------------------------
 
 ;; -- magit ------------------------------------------------------------------
