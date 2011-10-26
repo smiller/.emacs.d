@@ -42,9 +42,15 @@
 (global-set-key (kbd "M-l") 'goto-line)
 ;; -- end --------------------------------------------------------------------
 
-;; -- tags -------------------------------------------------------------------
+;; -- coding -----------------------------------------------------------------
 (setq tags-table-list
       '("/Users/sean/projects/qs-core/TAGS"))
+
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . ruby-mode))
 ;; -- end --------------------------------------------------------------------
 
 ;; == third-party packages ===================================================
