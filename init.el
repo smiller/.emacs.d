@@ -1,14 +1,14 @@
 ;; == internals ==============================================================
 
 ;; -- directories ------------------------------------------------------------
-(setq smm-emacs-init-file (or load-file-name buffer-file-name))
-(setq smm-emacs-config-dir (file-name-directory smm-emacs-init-file))
+(setq init-file (or load-file-name buffer-file-name))
+(setq dotfiles-dir (file-name-directory init-file))
 ;; -- end --------------------------------------------------------------------
 
-;; -- load everything from smm-init-dir --------------------------------------
-(setq smm-init-dir (expand-file-name "init.d" smm-emacs-config-dir))
-(if (file-exists-p smm-init-dir)
-    (dolist (file (directory-files smm-init-dir t "\\.el$"))
+;; -- load everything from dotfiles-init-dir ---------------------------------
+(setq dotfiles-init-dir (expand-file-name "init.d" dotfiles-dir))
+(if (file-exists-p dotfiles-init-dir)
+    (dolist (file (directory-files dotfiles-init-dir t "\\.el$"))
       (load file)))
 ;; -- end --------------------------------------------------------------------
 
