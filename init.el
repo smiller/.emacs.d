@@ -54,6 +54,14 @@
 (setq exec-path (append exec-path '("/usr/local/git/bin")))
 (require 'magit)
 (global-set-key (kbd "M-g M-m") 'magit-status)
+
+;; http://readystate4.com/2011/02/22/emacs-changing-magits-default-diff-colors/
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))))
 ;; -- end --------------------------------------------------------------------
 
 ;; -- full-ack ---------------------------------------------------------------
