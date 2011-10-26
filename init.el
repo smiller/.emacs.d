@@ -55,8 +55,17 @@
 
 ;; == third-party packages ===================================================
 
+;; -- add marmalade repo -----------------------------------------------------
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+;; then M-x package-refresh-contents
+;; M-x package-install RET magit RET
+;; M-x package-install RET full-ack
+;; -- end --------------------------------------------------------------------
+
 ;; -- magit ------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/vendor/magit-1.0.0/")
 (setq exec-path (append exec-path '("/usr/local/git/bin")))
 (require 'magit)
 (global-set-key (kbd "M-g M-m") 'magit-status)
@@ -71,7 +80,6 @@
 ;; -- end --------------------------------------------------------------------
 
 ;; -- full-ack ---------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/vendor/full-ack-0.2.2/")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
