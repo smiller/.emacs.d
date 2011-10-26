@@ -33,7 +33,8 @@
 
 ;; -- whitespace -------------------------------------------------------------
 (require 'whitespace)
-(global-whitespace-mode t)
+(add-hook 'ruby-mode-hook 'whitespace-mode)
+(add-hook 'js-mode-hook 'whitespace-mode)
 ;; -- end --------------------------------------------------------------------
 
 ;; -- shortcuts --------------------------------------------------------------
