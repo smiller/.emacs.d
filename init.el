@@ -42,12 +42,14 @@
 ;; because ruby-mode overrides C-M-p / C-M-n defaults
 (global-set-key (kbd "M-g M-[") 'backward-list)
 (global-set-key (kbd "M-g M-]") 'forward-list)
+;; quicker guillemets
+(global-set-key (kbd "C-c o") (kbd "C-x 8 * <"))
+(global-set-key (kbd "C-c c") (kbd "C-x 8 * >"))
 
 ;; == third-party packages ===================================================
 
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
 (add-to-list 'custom-theme-load-path themes-dir)
-(load-theme 'zenburn t)
 
 (setq vendor-dir (expand-file-name "vendor" dotfiles-dir))
 (dolist (project (directory-files vendor-dir t "\\w+"))
