@@ -4,6 +4,12 @@
   (find-file "~/rolls/0/emacs.txt"))
 (global-set-key (kbd "M-g M-e") 'my-open-emacs-notes)
 
+(defun my-open-code-notes ()
+  "Opening `~/rolls/0/code.txt'."
+  (interactive)
+  (find-file "~/rolls/0/code.txt"))
+(global-set-key (kbd "M-g M-o") 'my-open-code-notes)
+
 (defun my-open-init_el ()
   "Opening `~/.emacs.d/init.el'."
   (interactive)

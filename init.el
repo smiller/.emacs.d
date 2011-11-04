@@ -97,3 +97,18 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/unbound-0.1/")
 (require 'unbound)
 ;; -- end --------------------------------------------------------------------
+
+;; -- haml-mode --------------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/haml-mode/")
+(require 'haml-mode)
+(add-hook 'haml-mode-hook
+                  '(lambda ()
+                         (setq indent-tabs-mode nil)
+                         (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+;; -- end --------------------------------------------------------------------
+
+;; -- windows-numbering ------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/vendor/window-numbering/")
+(require 'window-numbering)
+(window-numbering-mode 1)
+;; -- end --------------------------------------------------------------------
