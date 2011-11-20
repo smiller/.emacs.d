@@ -94,3 +94,11 @@
 
 (require 'window-numbering)
 (window-numbering-mode 1)
+
+(require 'ido)
+(ido-mode t)
+
+(require 'rinari)
+
+(require 'ruby-electric)
+(ruby-electric-mode t)
