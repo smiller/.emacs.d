@@ -10,6 +10,14 @@
   (find-file "~/rolls/0/code.txt"))
 (global-set-key (kbd "M-g M-o") 'my-open-code-notes)
 
+(defun my-open-notes ()
+  "Opening `~/rolls/0/memos.txt'."
+  (interactive)
+  (find-file "~/rolls/0/memos.txt"))
+(global-set-key (kbd "M-g M-p") 'my-open-notes)
+
+;; ---------------------------------------------------------------------------
+
 (defun my-open-init_el ()
   "Opening `~/.emacs.d/init.el'."
   (interactive)
@@ -22,11 +30,13 @@
   (find-file "~/.bash_profile"))
 (global-set-key (kbd "M-g M-b") 'my-open-bash_profile)
 
-(defun my-open-pass ()
-  "Opening `~/rolls/0/memos.txt'."
+(defun my-open-pryrc ()
+  "Opening `~/.pryrc'."
   (interactive)
-  (find-file "~/rolls/0/memos.txt"))
-(global-set-key (kbd "M-g M-p") 'my-open-pass)
+  (find-file "~/.pryrc"))
+(global-set-key (kbd "M-g M-v") 'my-open-pryrc)
+
+;; ---------------------------------------------------------------------------
 
 (defun my-dired-rolls ()
   "Opening '~/rolls'."
