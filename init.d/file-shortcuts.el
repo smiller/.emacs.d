@@ -1,3 +1,11 @@
+(defun my-find-grep-in-rolls (str)
+  "find-grep in '~/rolls/'"
+  (interactive "sfind-grep: ")
+  (dired "~/rolls/")
+  (grep-compute-defaults)
+  (grep-find (concat "find . -type f -exec grep -nH -e '" str "' {} +")))
+(global-set-key (kbd "M-g M-s") 'my-find-grep-in-rolls)
+
 (defun my-open-emacs-notes ()
   "Opening `~/rolls/0/emacs.txt'."
   (interactive)
