@@ -1,46 +1,29 @@
-(defun my-grep-find-in-rolls (str)
-  "find-grep in '~/rolls/'"
-  (interactive "sfind-grep in rolls: ")
-  (cd "~/rolls/")
+(defun cd-to-rolls ()
+  "cd to '~/rolls/'"
+  (interactive)
+  (cd "~/rolls/"))
+(global-set-key (kbd "C-c C-r") 'cd-to-rolls)
+
+(defun cd-to-emacs ()
+  "cd to '~/.emacs.d/'"
+  (interactive)
+  (cd "~/.emacs.d/"))
+(global-set-key (kbd "C-c C-e") 'cd-to-emacs)
+
+(defun grep-find-from-here (str)
+  "grep-find from here"
+  (interactive "sfind-grep: ")
   (grep-find (concat "find . -type f -exec grep -nH -e '" str "' {} +")))
-(global-set-key (kbd "C-c C-g C-r") 'my-grep-find-in-rolls)
+(global-set-key (kbd "C-x C-g") 'grep-find-from-here)
 
-(defun my-find-file-from-rolls ()
-  "find-file starting at '~/rolls/'"
-  (interactive)
-  (cd "~/rolls/")
-  (ido-find-file))
-(global-set-key (kbd "C-c C-f C-r") 'my-find-file-from-rolls)
-
-(defun my-dired-rolls ()
-  "Opening '~/rolls'."
-  (interactive)
-  (dired "~/rolls/"))
-(global-set-key (kbd "C-c C-d C-r") 'my-dired-rolls)
-
-;; ---------------------------------------------------------------------------
-
-(defun my-ack-in-qs-core (str)
-  "ack in '~/projects/qs-core/'"
-  (interactive "sack in qs-core: ")
-  (cd "~/projects/qs-core")
+(defun ack-from-here (str)
+  "ack from here"
+  (interactive "sack: ")
   (ack str))
-(global-set-key (kbd "C-c C-a C-q") 'my-ack-in-qs-core)
-
-(defun my-find-file-from-qs-core ()
-  "find-file starting at '~/projects/qs-core/'"
-  (interactive)
-  (cd "~/projects/qs-core/")
-  (ido-find-file))
-(global-set-key (kbd "C-c C-f C-q") 'my-find-file-from-qs-core)
-
-(defun my-dired-qs-core ()
-  "Opening '~/projects/qs-core'."
-  (interactive)
-  (dired "~/projects/qs-core/"))
-(global-set-key (kbd "C-c C-d C-q") 'my-dired-qs-core)
+(global-set-key (kbd "C-x C-a") 'ack-from-here)
 
 ;; ---------------------------------------------------------------------------
+
 
 (defun my-open-emacs-notes ()
   "Opening `~/rolls/0/emacs.txt'."
