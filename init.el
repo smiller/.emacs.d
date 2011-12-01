@@ -5,8 +5,8 @@
 (setq dotfiles-dir (file-name-directory init-file))
 (setq dotfiles-init-dir (expand-file-name "init.d" dotfiles-dir))
 (if (file-exists-p dotfiles-init-dir)
-    (dolist (file (directory-files dotfiles-init-dir t "\\.el$"))
-      (load file)))
+  (dolist (file (directory-files dotfiles-init-dir t "\\.el$"))
+    (load file)))
 
 ;; -- disable stuff ----------------------------------------------------------
 (setq make-backup-files nil)
@@ -22,16 +22,14 @@
 (global-linum-mode t)
 (setq linum-format "%4d ")
 (setq-default fill-column 80)
-(add-hook 'text-mode-hook 'longlines-mode)
 
-;; -- whitespace -------------------------------------------------------------
-(require 'whitespace)
-(add-hook 'ruby-mode-hook 'whitespace-mode)
-(add-hook 'js-mode-hook 'whitespace-mode)
+;; -- look -------------------------------------------------------------------
+(setq default-line-spacing 5)
+(set-default-font "Georgia-18")
 
 ;; -- coding -----------------------------------------------------------------
 (setq tags-table-list
-      '("/Users/sean/projects/qs-core/TAGS"))
+  '("/Users/sean/projects/qs-core/TAGS"))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
@@ -45,6 +43,24 @@
 ;; quicker guillemets
 (global-set-key (kbd "C-c o") (kbd "C-x 8 * <"))
 (global-set-key (kbd "C-c c") (kbd "C-x 8 * >"))
+
+;; -- different modes --------------------------------------------------------
+(defun my-text-mode-hook ()
+  (typopunct-mode)
+  (longlines-mode)
+  (set-default-font "Georgia-18"))
+
+(require 'whitespace)
+
+(defun my-code-mode-hook ()
+  (whitespace-mode)
+  (set-default-font "Menlo-16"))
+
+(add-hook 'text-mode-hook 'my-text-mode-hook)
+
+(add-hook 'ruby-mode-hook 'my-code-mode-hook)
+(add-hook 'js-mode-hook 'my-code-mode-hook)
+(add-hook 'emacs-lisp-mode-hook 'my-code-mode-hook)
 
 ;; == third-party packages ===================================================
 
@@ -88,9 +104,9 @@
 
 (require 'haml-mode)
 (add-hook 'haml-mode-hook
-                  '(lambda ()
-                         (setq indent-tabs-mode nil)
-                         (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+  '(lambda ()
+    (setq indent-tabs-mode nil)
+    (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
 (require 'window-numbering)
 (window-numbering-mode 1)
@@ -107,3 +123,6 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 (require 'typing)
+
+(require 'typopunct)
+(typopunct-change-language 'english t)
