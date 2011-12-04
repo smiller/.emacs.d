@@ -40,9 +40,6 @@
 ;; because ruby-mode overrides C-M-p / C-M-n defaults
 (global-set-key (kbd "M-g M-[") 'backward-list)
 (global-set-key (kbd "M-g M-]") 'forward-list)
-;; quicker guillemets
-(global-set-key (kbd "C-c o") (kbd "C-x 8 * <"))
-(global-set-key (kbd "C-c c") (kbd "C-x 8 * >"))
 ;;
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
@@ -129,6 +126,15 @@
 
 (require 'typopunct)
 (typopunct-change-language 'english t)
+;; easy switch between French and English
+(defun to-french()
+  (interactive)
+  (typopunct-change-language 'francais t))
+(global-set-key (kbd "C-c C-l C-f") 'to-french)
+(defun to-english
+  (interactive)
+  (typopunct-change-language 'english t))
+(global-set-key (kbd "C-c C-l C-e") 'to-english)
 ;; http://www.emacswiki.org/emacs/TypographicalPunctuationMarks
 (defconst typopunct-ellipsis (decode-char 'ucs #x2026))
     (defun typopunct-insert-ellipsis-or-middot (arg)
