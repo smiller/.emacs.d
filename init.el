@@ -131,7 +131,7 @@
   (interactive)
   (typopunct-change-language 'francais t))
 (global-set-key (kbd "C-c C-l C-f") 'to-french)
-(defun to-english
+(defun to-english()
   (interactive)
   (typopunct-change-language 'english t))
 (global-set-key (kbd "C-c C-l C-e") 'to-english)
