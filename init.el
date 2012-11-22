@@ -26,7 +26,6 @@
 ;; -- look -------------------------------------------------------------------
 (setq default-line-spacing 5)
 (set-default-font "Georgia-18")
-
 ;; -- coding -----------------------------------------------------------------
 (setq tags-table-list
   '("/Users/sean/projects/qs-core/TAGS"))
@@ -66,6 +65,8 @@
 
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
 (add-to-list 'custom-theme-load-path themes-dir)
+
+(load-theme 'zenburn t)
 
 (setq vendor-dir (expand-file-name "vendor" dotfiles-dir))
 (dolist (project (directory-files vendor-dir t "\\w+"))
@@ -114,8 +115,6 @@
 (require 'ido)
 (ido-mode t)
 
-(require 'rinari)
-
 (require 'ruby-electric)
 (ruby-electric-mode t)
 
@@ -153,3 +152,15 @@
        (t
         (self-insert-command arg))))
     (define-key typopunct-map "." 'typopunct-insert-ellipsis-or-middot)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("e9704e8b957e4151cd570c5f25ec81c297aa2b6a" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
