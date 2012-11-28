@@ -1,0 +1,3 @@
+[submodule "vendor/rvm.el"]
+	path = vendor/rvm.el
+	url = https://github.com/senny/rvm.el.git

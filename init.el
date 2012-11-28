@@ -134,6 +134,7 @@
   (interactive)
   (typopunct-change-language 'english t))
 (global-set-key (kbd "C-c C-l C-e") 'to-english)
+
 ;; http://www.emacswiki.org/emacs/TypographicalPunctuationMarks
 (defconst typopunct-ellipsis (decode-char 'ucs #x2026))
     (defun typopunct-insert-ellipsis-or-middot (arg)
@@ -152,6 +153,10 @@
        (t
         (self-insert-command arg))))
     (define-key typopunct-map "." 'typopunct-insert-ellipsis-or-middot)
+
+(require 'rvm)
+(rvm-use-default)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
