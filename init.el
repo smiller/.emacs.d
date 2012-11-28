@@ -11,10 +11,9 @@
 ;; -- disable stuff ----------------------------------------------------------
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(menu-bar-mode -1)
 
 ;; -- rows and columns -------------------------------------------------------
 (setq line-number-mode t)
