@@ -114,6 +114,8 @@
 (require 'ido)
 (ido-mode t)
 
+(require 'rinari)
+
 (require 'ruby-electric)
 (ruby-electric-mode t)
 
