@@ -4,6 +4,3 @@
 [submodule "vendor/rinari"]
 	path = vendor/rinari
 	url = https://github.com/eschulte/rinari.git
-[submodule "vendor/rails-minor-mode"]
-	path = vendor/rails-minor-mode
-	url = https://github.com/remvee/emacs-rails.git
