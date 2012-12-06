@@ -60,6 +60,11 @@
 (add-hook 'js-mode-hook 'my-code-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-code-mode-hook)
 
+
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook           (lambda () (paredit-mode +1)))
 ;; == third-party packages ===================================================
 
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
