@@ -119,6 +119,9 @@
 (require 'ruby-electric)
 (ruby-electric-mode t)
 
+(require 'clojure-mode)
+
+
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
