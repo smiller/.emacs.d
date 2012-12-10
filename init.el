@@ -66,6 +66,12 @@
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-paredit)
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
+
+;; http://stackoverflow.com/a/7442266
+;; handles unicode characters in prompt
+(defadvice ansi-term (after advise-ansi-term-coding-system)
+    (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
+(ad-activate 'ansi-term)
 ;; == third-party packages ===================================================
 
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
