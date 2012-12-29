@@ -77,6 +77,10 @@
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
 (add-to-list 'custom-theme-load-path themes-dir)
 
+(dolist (project (directory-files themes-dir t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'custom-theme-load-path project)))
+
 (load-theme 'zenburn t)
 
 (setq vendor-dir (expand-file-name "vendor" dotfiles-dir))
@@ -178,7 +182,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("e9704e8b957e4151cd570c5f25ec81c297aa2b6a" default))))
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

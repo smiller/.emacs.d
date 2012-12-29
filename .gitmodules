@@ -13,3 +13,9 @@
 [submodule "vendor/paredit"]
 	path = vendor/paredit
 	url = https://github.com/emacsmirror/paredit.git
+[submodule "vendor/markdown-mode.el"]
+	path = vendor/markdown-mode.el
+	url = git://github.com/bookworm/markdown-mode.el.git
+[submodule "themes/zenburn"]
+	path = themes/zenburn
+	url = git://github.com/bbatsov/zenburn-emacs.git
