@@ -33,6 +33,7 @@
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; -- custom key bindings ----------------------------------------------------
 ;; because ruby-mode overrides C-M-p / C-M-n defaults
@@ -52,6 +53,11 @@
 
 (defun my-code-mode-hook ()
   (whitespace-mode)
+  (typopunct-mode -1)
+  (set-default-font "Menlo-16"))
+
+(defun my-code-font-hook ()
+  (typopunct-mode -1)
   (set-default-font "Menlo-16"))
 
 (add-hook 'text-mode-hook 'my-text-mode-hook)
@@ -59,6 +65,7 @@
 (add-hook 'ruby-mode-hook 'my-code-mode-hook)
 (add-hook 'js-mode-hook 'my-code-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'my-code-mode-hook)
+(add-hook 'markdown-mode-hook 'my-code-font-hook)
 
 (defun turn-on-paredit () (paredit-mode 1))
 
@@ -73,10 +80,7 @@
     (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
 
-(setq auto-mode-alist
-  (cons '("\\.md" . markdown-mode) auto-mode-alist))
-;; == third-party packages ===================================================
-
+;; == themes =================================================================
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
 (add-to-list 'custom-theme-load-path themes-dir)
 
@@ -86,6 +90,7 @@
 
 (load-theme 'zenburn t)
 
+;; == third-party packages ===================================================
 (setq vendor-dir (expand-file-name "vendor" dotfiles-dir))
 (dolist (project (directory-files vendor-dir t "\\w+"))
   (when (file-directory-p project)
