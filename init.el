@@ -187,6 +187,42 @@
 (require 'rvm)
 (rvm-use-default)
 
+(require 'find-file-in-project)
+
+;; from http://whattheemacsd.com/key-bindings.el-04.html
+;; Function to create new functions that look for a specific pattern
+(defun ffip-create-pattern-file-finder (&rest patterns)
+  (lexical-let ((patterns patterns))
+    (lambda ()
+      (interactive)
+      (let ((ffip-patterns patterns))
+        (find-file-in-project)))))
+
+;; Find file in project, with specific patterns
+
+(global-set-key (kbd "C-c C-s rc")
+                (ffip-create-pattern-file-finder "*_controller.rb"))
+
+(global-set-key (kbd "C-c C-s rs")
+                (ffip-create-pattern-file-finder "*_spec.rb"))
+
+(global-set-key (kbd "C-c C-s sd")
+                (ffip-create-pattern-file-finder "*_steps.rb"))
+
+
+(global-set-key (kbd "C-c C-s rb")
+                (ffip-create-pattern-file-finder "*.rb"))
+
+(global-set-key (kbd "C-c C-s fe")
+                (ffip-create-pattern-file-finder "*.feature"))
+
+(global-set-key (kbd "C-c C-s ha")
+                (ffip-create-pattern-file-finder "*.haml"))
+
+
+
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

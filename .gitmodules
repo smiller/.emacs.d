@@ -22,3 +22,6 @@
 [submodule "vendor/org-mode"]
 	path = vendor/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "vendor/find-file-in-project"]
+	path = vendor/find-file-in-project
+	url = https://github.com/technomancy/find-file-in-project.git
