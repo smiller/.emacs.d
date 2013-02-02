@@ -82,6 +82,8 @@
     (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (ad-activate 'ansi-term)
 
+(setq ruby-deep-indent-paren nil)
+
 ;; == themes =================================================================
 (setq themes-dir (expand-file-name "themes" dotfiles-dir))
 (add-to-list 'custom-theme-load-path themes-dir)
