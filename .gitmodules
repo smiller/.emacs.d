@@ -25,3 +25,6 @@
 [submodule "vendor/find-file-in-project"]
 	path = vendor/find-file-in-project
 	url = https://github.com/technomancy/find-file-in-project.git
+[submodule "vendor/magit"]
+	path = vendor/magit
+	url = https://github.com/magit/magit.git
