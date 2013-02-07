@@ -43,7 +43,7 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
-(global-set-key (kbd "C-;") 'goto-line)
+(global-set-key (kbd "C-c l") 'goto-line)
 
 ;; -- different modes --------------------------------------------------------
 (defun my-text-mode-hook ()
