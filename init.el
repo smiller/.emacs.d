@@ -189,6 +189,8 @@
 (require 'rvm)
 (rvm-use-default)
 
+(require 'ruby-tools)
+
 (require 'find-file-in-project)
 
 ;; from http://whattheemacsd.com/key-bindings.el-04.html

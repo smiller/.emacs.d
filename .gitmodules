@@ -34,3 +34,6 @@
 [submodule "vendor/haml-mode"]
 	path = vendor/haml-mode
 	url = https://github.com/nex3/haml-mode.git
+[submodule "vendor/ruby-tools"]
+	path = vendor/ruby-tools
+	url = https://github.com/rejeep/ruby-tools.git
